@@ -18,10 +18,10 @@ render() {
         <NavLink className="nav-link" to="/login">Login</NavLink>
         </li>
         <li className="nav-item">
-        <NavLink className="nav-link" to="/logout">Logout</NavLink>
+        <NavLink className="nav-link" to="/list">List</NavLink>
         </li>
         <li className="nav-item">
-        <NavLink className="nav-link" to="/list">List</NavLink>
+        <NavLink className="nav-link" to="/fortune">Fortune</NavLink>
         </li>
       </ul>
     </div>

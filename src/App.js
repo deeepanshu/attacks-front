@@ -3,6 +3,7 @@ import './App.css';
 import  Login  from './components/Login/Login';
 import  List  from './components/List/List';
 import  Navbar  from './components/Navbar/Navbar';
+import  FortuneTeller  from './components/FortuneTeller/FortuneTeller';
 import { Route, Switch, Link } from "react-router-dom";
 class App extends Component {
   render() {
@@ -92,6 +93,7 @@ class App extends Component {
           <Switch>
           <Route exact path={"/login"}  component={Login} />
           <Route  path={"/list"}  component={List} />
+          <Route path="/fortune" component={FortuneTeller}/>
           </Switch>
         </div>
       </div>

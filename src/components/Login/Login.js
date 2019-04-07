@@ -16,7 +16,7 @@ class Login extends Component {
         const username = e.target.username.value;
         const password = e.target.password.value;
         console.log(username, password);
-        axios.post(`${urlStore.LOGIN}`, {username, password})
+        axios.post(`${urlStore.SAFELOGIN}`, {username, password})
             .then( response => {
                 console.log(response.data);
             })
