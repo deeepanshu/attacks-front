@@ -48,6 +48,7 @@ class List extends Component {
   render() {
     return (
         <div>
+            <div>
             <h4>Add New Item</h4>
                 <form onSubmit={this.addToList}>
                     <label>
@@ -61,9 +62,7 @@ class List extends Component {
                     </label>
                     <br />
                     <button>Submit</button>
-                </form>
-            <div>
-                
+                </form>    
             </div>
             <div>
                 <h4>List of existing items</h4>
@@ -72,7 +71,6 @@ class List extends Component {
                 }) : 'Empty Db'}
 
             </div>
-            <script>alert("Gonna");</script>
         </div>
     );
   }

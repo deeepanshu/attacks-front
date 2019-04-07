@@ -1,24 +1,17 @@
 import React, { Component } from 'react';
-import './App.css';
-import  Login  from './components/Login/Login';
-import  List  from './components/List/List';
-import  Home  from './components/Home/Home';
-import { Route, Switch, Link } from "react-router-dom";
-class App extends Component {
+import axios from 'axios';
+import urlStore from './../../config/urlStore';
+
+class Home extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {};
+    }
+    
   render() {
     return (
-      <div>
-        
-        <div className="container">
-        <nav>
-          <ul>
-            <li><Link to="/">Docs</Link></li>
-            <li><Link to="/list">List</Link></li>
-            <li><Link to="/login">Login</Link></li>
-          </ul>
-        </nav>
-          <div className="row">
-            <div className="col-md-6">
+        <div>
             <h3>Documentation</h3>
             <div>
                 <h4>Backend APIs</h4>
@@ -57,27 +50,8 @@ class App extends Component {
                </li>
             </div>
         </div>
-<div className="col-md-6">
-<Switch>
-        {/* <Route exact path={"/"}  component={Home} /> */}
-          <Route exact path={"/login"}  component={Login} />
-          <Route  path={"/list"}  component={List} />
-        </Switch>
-        </div>
-</div>
-
-        <div>
-          </div>
-        </div>
-        
-        
-
-        
-        
-      </div>
-    
     );
   }
 }
 
-export default App;
+export default Home;
