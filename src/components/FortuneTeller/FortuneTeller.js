@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios  from 'axios';
 import urlStore from './../../config/urlStore';
+import Cookies from 'js-cookie';
 class FortuneTeller extends Component {
 
     constructor(props) {
@@ -10,7 +11,9 @@ class FortuneTeller extends Component {
 
     fortuneTeller(e) {
         e.preventDefault();
-        alert("Oh! You just got attacked!!")
+        console.log(Cookies.get('user'));
+        let user = localStorage.getItem('user');
+        alert(`Oh! You just got attacked!! ${user}`);
         axios.get(urlStore.DEVIL)
             .then(response => {
                 console.log(response);

@@ -5,7 +5,23 @@ import  List  from './components/List/List';
 import  Navbar  from './components/Navbar/Navbar';
 import  FortuneTeller  from './components/FortuneTeller/FortuneTeller';
 import { Route, Switch, Link } from "react-router-dom";
+import axios from 'axios';
+import urlStore from './config/urlStore';
 class App extends Component {
+
+  constructor(props) {
+    super(props);
+    this.seedDb = this.seedDb.bind(this);
+  }
+
+  seedDb(e) {
+    e.preventDefault();
+    axios.get(urlStore.SEED)
+      .then((response) => {
+        alert("Database Seeded!");
+      })
+  }
+
   render() {
     return (
       <div>
@@ -43,6 +59,8 @@ class App extends Component {
                     </tbody>
                 </table>
             </div>
+            <hr />
+            <button onClick={this.seedDb} className="btn btn-outline-secondary">Seed DB</button>
             <hr />
             <div  className="text-justify">
                 <h6>SQL Injection Attacks</h6>
@@ -85,6 +103,9 @@ class App extends Component {
                 </li>
                 <li>
                   When this button is clicked, the cookie information is sent to attacker's server, without even you knowing about it.
+                </li>
+                <li>
+                  To see the actual call to the evil server, one can check the Network Tab of the broweser.
                 </li>
               </ul>
             </div>
