@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import  Login  from './components/Login/Login';
 import  List  from './components/List/List';
-import  Home  from './components/Home/Home';
+import  Navbar  from './components/Navbar/Navbar';
 import { Route, Switch, Link } from "react-router-dom";
 class App extends Component {
   render() {
@@ -10,18 +10,13 @@ class App extends Component {
       <div>
         
         <div className="container">
-        <nav>
-          <ul>
-            <li><Link to="/">Docs</Link></li>
-            <li><Link to="/list">List</Link></li>
-            <li><Link to="/login">Login</Link></li>
-          </ul>
-        </nav>
+        <Navbar/>
+        <br />
           <div className="row">
-            <div className="col-md-6">
-            <h3>Documentation</h3>
+            <div className="col-md-6 overflow">
+            <h5>Documentation</h5>
             <div>
-                <h4>Backend APIs</h4>
+                <h6>Backend APIs</h6>
                 <table>
                     <tbody>
                         <tr>
@@ -47,28 +42,63 @@ class App extends Component {
                     </tbody>
                 </table>
             </div>
-            <div>
-                <h4>SQL Injection Attacks</h4>
+            <hr />
+            <div  className="text-justify">
+                <h6>SQL Injection Attacks</h6>
+                <ul>
                 <li>
-                   To test SQL Injection Attack go to login page and in username paste "' OR 1=1 -- " or "'; DROP TABLE login; -- "
+                   To test SQL Injection Attack go to login page and in username paste <code>"' OR 1=1 -- "</code> or <code>"'; DROP TABLE login; -- "</code>
                </li>
                <li>
                    Then give any password, and press login.
                </li>
+               <li>
+                 To remove the effect of SQL Injection, try clicking SafeLogin Button
+               </li>
+               </ul>
+            </div>
+            <hr />
+            <div className="text-justify"> 
+              <h6>XSS Attacks</h6>
+              <ul>
+                <li>
+                  To Test XSS Attack, go to list page, and try adding a js script in the input field, for example: <code>"alert("Attacking");"</code> wrapper in script tags.
+                </li>
+                <li>
+                  Modern frameworks are capable enough to sanitize the input, but to be on the safer side, we have written sanitizer function that reads the input and removes every special character that makes a script into a white space <code>' '</code>.
+                </li>
+                <li>
+                  As you can see in the previous list, scripts are sanitized and have no effect whatsoever on the DOM;
+                </li>
+              </ul>
+            </div>
+            <hr />
+            <div className="text-justify">
+              <h6>Session Hijacking</h6>
+              <ul>
+                <li>
+                  In Session Hijacking Attack, generally the cookie and session information is stolen and then it is used to validate or give access to a unauthorized user.
+                </li>
+                <li>
+                  To try this attack go to fortune-teller page, and click the fortune-teller button.
+                </li>
+                <li>
+                  When this button is clicked, the cookie information is sent to attacker's server, without even you knowing about it.
+                </li>
+              </ul>
             </div>
         </div>
-<div className="col-md-6">
-<Switch>
-        {/* <Route exact path={"/"}  component={Home} /> */}
+        <div className="col-md-6">
+          <Switch>
           <Route exact path={"/login"}  component={Login} />
           <Route  path={"/list"}  component={List} />
-        </Switch>
+          </Switch>
         </div>
-</div>
+      </div>
 
-        <div>
-          </div>
-        </div>
+    <div>
+  </div>
+  </div>
         
         
 

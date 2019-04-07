@@ -41,7 +41,7 @@ class List extends Component {
         axios.post(urlStore.LIST, {item, description})
             .then(response => {
                 console.log(response.data);
-                // this.fetchList();
+                this.fetchList();
             })
     }
     
@@ -49,23 +49,21 @@ class List extends Component {
     return (
         <div>
             <div>
-            <h4>Add New Item</h4>
+            <h5>Add New Item</h5>
                 <form onSubmit={this.addToList}>
-                    <label>
-                        Item
-                        <input type='text' name='item' required/>
-                    </label>
-                    <br />
-                    <label>
-                        Description
-                        <input type='text' name='description' required/>
-                    </label>
-                    <br />
-                    <button>Submit</button>
+                    <div className="input-group mb-3">
+                        <input type="text" name="item" className="form-control" placeholder="Item" aria-label="Item" aria-describedby="basic-addon1"/>
+                    </div>
+                  
+                    <div className="input-group mb-3">
+                        <input type="text" name="description" className="form-control" placeholder="Description" aria-label="Description" aria-describedby="basic-addon1"/>
+                    </div>
+                    <button className="btn btn-outline-primary">Submit</button>
                 </form>    
             </div>
+            <hr />
             <div>
-                <h4>List of existing items</h4>
+                <h5>List of existing items</h5>
                 {this.state.list ? this.state.list.map((ele, index) => {
                     return <li key={index}>{ele.item} - {ele.description}</li>
                 }) : 'Empty Db'}

@@ -34,19 +34,19 @@ class Login extends Component {
     return (
         <div>
             <form onSubmit={this.submitform}>
-                <label>
-                    Username
-                    <input type='text' name='username'/>
-                </label>
-                <br />
-                <label>
-                    Password
-                    <input type='password' name='password'/>
-                </label>
-                <br />
-                <button>Login</button>
-                <br />
-                <button>Safe Login</button>
+                <div className="input-group mb-3">
+                    <div className="input-group-prepend">
+                        <span className="input-group-text" id="basic-addon1">@</span>
+                    </div>
+                    <input type="text" name="username" className="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1"/>
+                </div>
+                <div className="input-group mb-3">
+                    
+                    <input type="password" name="password" className="form-control" placeholder="Password" aria-label="Username" aria-describedby="basic-addon1"/>
+                </div>
+
+                <button className="btn btn-outline-danger">Login</button>
+                <button className="btn btn-outline-primary">Safe Login</button>
             </form>
         </div>
     );
