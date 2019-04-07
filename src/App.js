@@ -72,6 +72,9 @@ class App extends Component {
                    Then give any password, and press login.
                </li>
                <li>
+                  To actually see the effect of the query you have entered, go to console of your browser and look for the result. There we can see for first hack, multiple rows are returned and for the second one, no rows are returned, since the table is dropped.
+               </li>
+               <li>
                  To remove the effect of SQL Injection, try clicking SafeLogin Button
                </li>
                </ul>
